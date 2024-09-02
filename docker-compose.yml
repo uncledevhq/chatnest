@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_database
+    environment:
+      MYSQL_ROOT_PASSWORD: root # Set root password
+      MYSQL_DATABASE: chatnest # Initial database name
+    ports:
+      - "3306:3306" # Exposing port 3306 to the host
+    volumes:
+      - mysql_data:/var/lib/mysql # Persist data in a Docker volume
+
+volumes:
+  mysql_data:

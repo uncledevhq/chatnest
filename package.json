@@ -1,10 +1,10 @@
 {
-  "name": "taxonomy",
+  "name": "chatnest",
   "version": "0.2.0",
   "private": true,
   "author": {
-    "name": "shadcn",
-    "url": "https://twitter.com/shadcn"
+    "name": "chomba",
+    "url": "https://uncledevhq.com/"
   },
   "scripts": {
     "dev": "concurrently \"contentlayer dev\" \"next dev\"",

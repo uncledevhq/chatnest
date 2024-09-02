@@ -1,13 +1,13 @@
 import { SiteConfig } from "types"
 
 export const siteConfig: SiteConfig = {
-  name: "Taxonomy",
+  name: "ChatNest",
   description:
-    "An open source application built using the new router, server components and everything new in Next.js 13.",
-  url: "https://tx.shadcn.com",
-  ogImage: "https://tx.shadcn.com/og.jpg",
+    "ChatNest is a powerful SaaS platform that enables businesses to build, train, and deploy custom chatbots with ease, leveraging the latest features of Next.js 13, server components, and a modern routing system.",
+  url: "https://chatnest.example.com",
+  ogImage: "https://chatnest.example.com/og.jpg",
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/taxonomy",
+    twitter: "https://x.com/uncledevhq",
+    github: "https://github.com/chombazm/chatnest",
   },
 }

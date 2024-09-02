@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
 
@@ -22,10 +23,16 @@ export function MainNav({ items, children }: MainNavProps) {
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
-        <Icons.logo />
+        <Image
+          alt="ChatNest Logo"
+          src="/Chatnest-logo.svg"
+          width={200}
+          height={60}
+        />
+        {/* <Icons.logo />
         <span className="hidden font-bold sm:inline-block">
           {siteConfig.name}
-        </span>
+        </span> */}
       </Link>
       {items?.length ? (
         <nav className="hidden gap-6 md:flex">
