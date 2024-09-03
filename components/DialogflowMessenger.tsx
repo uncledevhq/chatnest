@@ -20,11 +20,12 @@ const DialogflowMessenger = () => {
 
   return (
     <>
-      {/* Add Dialogflow Messenger HTML */}
+      {/* Include Dialogflow Messenger stylesheet */}
       <link
         rel="stylesheet"
         href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css"
       />
+      {/* Add Dialogflow Messenger component */}
       <df-messenger
         project-id="bionic-path-434311-d2"
         agent-id="e16cb9ff-788d-43de-9e3b-876cd35aae85"
@@ -33,14 +34,14 @@ const DialogflowMessenger = () => {
       >
         <df-messenger-chat-bubble chat-title="MC Mulenga and CO."></df-messenger-chat-bubble>
       </df-messenger>
-      {/* Add custom styling for Dialogflow Messenger */}
+      {/* Custom styling for Dialogflow Messenger */}
       <style>
         {`
           df-messenger {
             z-index: 999;
             position: fixed;
-            --df-messenger-font-color: #F4B400;
-            --df-messenger-font-family: Roboto;
+            --df-messenger-font-color: #000; /* Updated font color */
+            --df-messenger-font-family: Roboto; /* Updated font family */
             --df-messenger-chat-background: #f3f6fc;
             --df-messenger-message-user-background: #d3e3fd;
             --df-messenger-message-bot-background: #fff;

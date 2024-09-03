@@ -50,6 +50,24 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,
+  bot: (
+    { ...props }: LucideProps // Custom bot icon using SVG
+  ) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 2a4 4 0 00-4 4v1a4 4 0 01-4 4h16a4 4 0 01-4-4V6a4 4 0 00-4-4zM6 18v1a3 3 0 006 0v-1m-6 0a3 3 0 01-6 0v-1h6zm12 1v-1h-6v1a3 3 0 006 0z"
+      />
+    </svg>
+  ),
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

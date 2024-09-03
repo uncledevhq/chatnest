@@ -3,10 +3,10 @@ import { redirect } from "next/navigation"
 import { authOptions } from "@/lib/auth"
 import { db } from "@/lib/db"
 import { getCurrentUser } from "@/lib/session"
+import { AgentCreateButton } from "@/components/agent-create-button"
+import { AgentItem } from "@/components/agent-item"
 import { EmptyPlaceholder } from "@/components/empty-placeholder"
 import { DashboardHeader } from "@/components/header"
-import { PostCreateButton } from "@/components/post-create-button"
-import { PostItem } from "@/components/post-item"
 import { DashboardShell } from "@/components/shell"
 
 export const metadata = {
@@ -20,14 +20,15 @@ export default async function DashboardPage() {
     redirect(authOptions?.pages?.signIn || "/login")
   }
 
-  const posts = await db.post.findMany({
+  const agents = await db.agent.findMany({
     where: {
-      authorId: user.id,
+      ownerId: user.id,
     },
     select: {
       id: true,
-      title: true,
-      published: true,
+      name: true,
+      status: true,
+      ownerId: true,
       createdAt: true,
     },
     orderBy: {
@@ -35,26 +36,28 @@ export default async function DashboardPage() {
     },
   })
 
+  console.log(agents, "check for agent")
+
   return (
     <DashboardShell>
-      <DashboardHeader heading="Posts" text="Create and manage posts.">
-        <PostCreateButton />
+      <DashboardHeader heading="Agents" text="Create and manage your agents.">
+        <AgentCreateButton />
       </DashboardHeader>
       <div>
-        {posts?.length ? (
+        {agents?.length ? (
           <div className="divide-y divide-border rounded-md border">
-            {posts.map((post) => (
-              <PostItem key={post.id} post={post} />
+            {agents.map((agent) => (
+              <AgentItem key={agent.id} agent={agent} />
             ))}
           </div>
         ) : (
           <EmptyPlaceholder>
-            <EmptyPlaceholder.Icon name="post" />
-            <EmptyPlaceholder.Title>No posts created</EmptyPlaceholder.Title>
+            <EmptyPlaceholder.Icon name="bot" />
+            <EmptyPlaceholder.Title>No agents created</EmptyPlaceholder.Title>
             <EmptyPlaceholder.Description>
-              You don&apos;t have any posts yet. Start creating content.
+              You don&apos;t have any agents yet. Start by creating a new agent.
             </EmptyPlaceholder.Description>
-            <PostCreateButton variant="outline" />
+            <AgentCreateButton variant="outline" />
           </EmptyPlaceholder>
         )}
       </div>
