@@ -85,7 +85,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
-          {/* <DialogflowMessenger /> */}
+          <DialogflowMessenger />
           <Analytics />
           <Toaster />
           <TailwindIndicator />
